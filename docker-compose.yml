@@ -1,0 +1,15 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: streakline-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - "127.0.0.1:27017:27017"   # localhost only
+    volumes:
+      - streakline-mongo:/data/db
+
+volumes:
+  streakline-mongo:

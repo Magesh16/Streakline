@@ -1,0 +1,16 @@
+{
+  "name": "habit-tracker",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "mongo:up": "docker compose up -d mongo",
+    "mongo:down": "docker compose stop mongo"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
